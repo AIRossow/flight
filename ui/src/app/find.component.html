@@ -1,0 +1,6 @@
+<button ui-sref = "find">Find Flights</button>
+<table style = "width:100%">
+	<tr ng-repeat = "flights in $findCtrl.flights">
+		<td> {{flights.origin}}   {{flights.destination}}</td>
+	</tr>
+</table>

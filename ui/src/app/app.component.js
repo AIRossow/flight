@@ -11,4 +11,7 @@ export default {
   templateUrl,
   controller: AppController,
   controllerAs: '$appCtrl'
+//	  bindings: {
+//		  'flight': '='
+//  }
 }
