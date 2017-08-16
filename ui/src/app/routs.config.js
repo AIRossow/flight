@@ -16,6 +16,15 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
    		 
     	}
     );
+    $stateProvider.state('book',
+        	{
+        		url: '/flights',
+        		component: 'bookFlights'
+       				
+       		 
+        	}
+        );
+    
   
   $urlRouterProvider.otherwise('/');
 

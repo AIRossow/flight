@@ -17,10 +17,17 @@ public class FlightService {
 
 	private ArrayList<Flight> flightList = new ArrayList<>();
 	
+	private ArrayList<Flight> route = new ArrayList<>();
+	
 	public ArrayList<Flight> getDailyFlightList()
 	{
 		return flightList;
 	}
+	
+//	public ArrayList<Flight>createRoute(Flight flight) {
+//		route.add(flight);
+//		return route;
+//	}
 	
 	//The fixedDelay parameter determines how often a new day is generated as expressed in milliseconds
 	@Scheduled(fixedDelay=5000)
