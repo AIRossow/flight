@@ -1,8 +1,9 @@
 /* @ngInject */
 class findService {
-  constructor ($http, $map) {
+  constructor ($http, $map, $state) {
 	this.$map = $map
     this.$http = $http
+    this.$state = $state
     this.start = ""
     this.dest = ""
     this.layover = ""
@@ -50,6 +51,7 @@ class findService {
 		if(this.route.length > 0) {
 			console.log("direct flight ")
 			console.log(this.route)
+			this.$state.go('book')
 	    	return this.route
 		} else {
 			this.allFlights.some((item) => {
@@ -63,16 +65,12 @@ class findService {
 				}
 				else{
 					this.route.pop()
-					console.log("pop")
 				}
 			}
 			})
 		}
-//	    this.route.forEach(item => {
-//	    	$map.addPath(item.origin, item.destination, BLUE)
-//	    })
 		console.log(this.route)
-		//$state.go($state.book, {}, {reload: true})
+		this.$state.go('book')
 	}
 }
 export default findService

@@ -1,4 +1,3 @@
-//import $findCtrl from './find.component.js'
 /* @ngInject */
 function RoutesConfig($stateProvider, $urlRouterProvider) {
 
@@ -11,17 +10,13 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     $stateProvider.state('find',
     	{
     		url: '/flights',
-    		component: 'findAllFlights'
-   				
-   		 
+    		component: 'findAllFlights'	 
     	}
     );
     $stateProvider.state('book',
         	{
-        		url: '/flights',
-        		component: 'bookFlights'
-       				
-       		 
+        		url: '/bookFlights',
+        		component: 'bookFlights'	 
         	}
         );
     

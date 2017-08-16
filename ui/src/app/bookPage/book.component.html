@@ -1,5 +1,3 @@
-<h1>Tennessee Flight Tracker.</h1>
-
 <div map-lazy-load="https://maps.google.com/maps/api/js">
 	<ng-map center="{{$mapCtrl.center}}" zoom="{{$mapCtrl.zoom}}">
 	  <marker
@@ -18,5 +16,16 @@
 </ng-map>
 </div>
 
-
-<find-all-flights></find-all-flights>
+<table style = "width:100%">
+	<td>Origin</td>
+	<td>Destination</td>
+	<td>Flight Time</td>
+	<td>Offset</td>
+	<tr ng-repeat = "routes in $bookCtrl.routes">
+		<td> {{routes.origin}}</td>
+		<td>{{routes.destination}}</td>
+		<td>{{routes.flightTime}}</td>
+		<td>{{routes.offset}}</td>
+		<td><button>Book Flight</button></td>
+	</tr>
+</table>
