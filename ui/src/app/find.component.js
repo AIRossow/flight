@@ -10,7 +10,6 @@ class findController {
     findService.findFlights().then((data) => {
     	this.flights = data;
     });
-  
   }
 
 }

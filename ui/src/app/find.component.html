@@ -1,6 +1,17 @@
-<button ui-sref = "find">Find Flights</button>
 <table style = "width:100%">
+	<td>Origin</td>
+	<td>Destination</td>
+	<td>Flight Time</td>
+	<td>Offset</td>
 	<tr ng-repeat = "flights in $findCtrl.flights">
-		<td> {{flights.origin}}   {{flights.destination}}</td>
+		<td> {{flights.origin}}</td>
+		<td>{{flights.destination}}</td>
+		<td>{{flights.flightTime}}</td>
+		<td>{{flights.offset}}</td>
 	</tr>
 </table>
+<div>
+	<input type="text" ng-model = '$findCtrl.findService.start'>
+	<input type="text" ng-model = '$findCtrl.findService.dest'>
+	<button ng-Click = "$findCtrl.findService.getRoute()" >Find Flights</button>
+</div>
