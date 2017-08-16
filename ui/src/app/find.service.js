@@ -23,13 +23,13 @@ class findService {
 	singleFlight() {
 		console.log("here")
 	    this.allFlights.forEach((item) => {
-	    	this.flightTime = item.offset + item.flightTime
 	    	if(this.start.toLowerCase() == item.origin.toLowerCase() && this.dest.toLowerCase() == item.destination.toLowerCase()) {
 	    		this.route.push(item)
-	    		return item;
-	    	} else
-	    		return null;
+	    		//return item;
+	    	} //else
+	    		//return null;
 	    })	
+	    return this.route
 	}
 	
 	checkConnecting(lay) {
@@ -39,15 +39,17 @@ class findService {
 	    			&& item.offset >= (this.flightTime - 1)) {
 	    		this.connectingFlight = item
 	    		this.route.push(item)
-	    		return item;
 	    	}
 	    })
-	    return null;
+	    return this.route
 	}
 	
 	getRoute() {
 		console.log("getting flight route")
-		if(this.singleFlight() != null) {
+		this.singleFlight()
+		if(this.route.length > 0) {
+			console.log("direct flight ")
+			console.log(this.route)
 	    	return this.route
 		} else {
 			this.allFlights.some((item) => {
@@ -55,27 +57,15 @@ class findService {
 				this.flightTime = item.offset + item.flightTime
 				this.route.push(item)
 				this.layover = item.destination
-				if(this.checkConnecting(this.layover) == null){
+				this.checkConnecting(this.layover)
+				if(this.route.length > 1){
+					return this.route
+				}
+				else{
 					this.route.pop()
 					console.log("pop")
 				}
-				else{
-					this.route.push(this.connectingFlight)
-				}
 			}
-	
-			
-//			if(this.checkConnecting(this.layover) != null) {
-//				this.route.push(this.connectingFlight)
-//			} else {
-//				this.route.pop(item)
-//			}
-//THIS IS TRYING TO DO IT IN ONE FUNCTION
-//			this.route.push(this.allFlights.find(this.checkConnecting))
-//	    	if(this.layover.toLowerCase() == item.origin.toLowerCase() && this.dest.toLowerCase() == item.destination.toLowerCase()
-//	    		&& item.offset >= (this.flightTime - 1)) {
-//	    		this.route.push(item);
-//	    	}
 			})
 		}
 //	    this.route.forEach(item => {
