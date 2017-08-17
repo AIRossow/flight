@@ -1,22 +1,32 @@
 /* @ngInject */
 function RoutesConfig($stateProvider, $urlRouterProvider) {
 
-    $stateProvider.state('welcome',
+	$stateProvider.state('Start',
+			{
+				url :'/',
+				component : 'user'
+			}
+	);
+    $stateProvider.state('allFlight',
         {
-            url: '/',
+            url: '/flightHome',
             component: 'flightMap'
         }
     );
     $stateProvider.state('find',
     	{
     		url: '/flights',
-    		component: 'findAllFlights'	 
+    		component: 'findAllFlights'
+   				
+   		 
     	}
     );
     $stateProvider.state('book',
         	{
         		url: '/bookFlights',
-        		component: 'bookFlights'	 
+        		component: 'bookFlights'
+       				
+       		 
         	}
         );
     

@@ -27,10 +27,5 @@ public class FlightsController {
 	{
 		return flightService.getDailyFlightList();
 	}
-	
-//	@RequestMapping
-//	public ArrayList<Flight> getRoute(Flight flight) {
-//		return flightService.createRoute(flight);
-//	}
 
 }

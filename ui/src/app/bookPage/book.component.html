@@ -26,6 +26,6 @@
 		<td>{{routes.destination}}</td>
 		<td>{{routes.flightTime}}</td>
 		<td>{{routes.offset}}</td>
-		<td><button>Book Flight</button></td>
+		<td><button ng-Click = "$bookCtrl.bookService.bookFlight(routes)">Book Flight</button></td>
 	</tr>
 </table>
