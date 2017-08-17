@@ -1,6 +1,7 @@
 package com.cooksys.controller;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -39,9 +40,13 @@ public class UsersController {
 	public boolean book(@RequestParam(required = true) String username, @RequestParam(required = true) String password,
 						@RequestParam(required = true) Long flightId, HttpServletResponse response)
 	{
-		System.out.println(username+" "+ password);
-		System.out.println(flightId);
 		return uService.book(username, password, flightId);
+	}
+	
+	@RequestMapping("/bookedFlight")
+	public Set<Flight> book(@RequestParam(required = true) String username, @RequestParam(required = true) String password, HttpServletResponse response)
+	{
+		return uService.booked(username, password);
 	}
 
 }

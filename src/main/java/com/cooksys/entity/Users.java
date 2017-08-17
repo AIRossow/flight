@@ -48,4 +48,8 @@ public class Users {
 	public void addFlight(Flight flight) {
 		this.bookedFlights.add(flight);
 	}
+
+	public Set<Flight> getFlights() {
+		return this.bookedFlights;
+	}
 }

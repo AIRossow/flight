@@ -29,3 +29,19 @@
 		<td><button ng-Click = "$bookCtrl.bookService.bookFlight(routes)">Book Flight</button></td>
 	</tr>
 </table>
+
+<div>
+	<button ng-Click = "$bookCtrl.bookService.getBookedFlights()">Get Booked Flights</button>
+	<table style = "width:100%" ng-style='$bookCtrl.bookService.showBook'>
+	<td>Origin</td>
+	<td>Destination</td>
+	<td>Flight Time</td>
+	<td>Offset</td>
+	<tr ng-repeat = "flights in $bookCtrl.bookService.bookedFlights">
+		<td> {{flights.origin}}</td>
+		<td>{{flights.destination}}</td>
+		<td>{{flights.flightTime}}</td>
+		<td>{{flights.offset}}</td>
+	</tr>
+</table>
+</div>

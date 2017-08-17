@@ -35,6 +35,10 @@ public class Flight {
 	//How many hours after the start of the day until the flight takes off
 	@Column
 	private long off;
+
+	@ManyToMany(mappedBy = "bookedFlights")
+	@Column
+	private Set<Users> passengers = new HashSet<>();
 	
 	public Set<Users> getPassengers() {
 		return passengers;
@@ -42,10 +46,6 @@ public class Flight {
 	public void setPassengers(Set<Users> passengers) {
 		this.passengers = passengers;
 	}
-
-	@ManyToMany(mappedBy = "bookedFlights")
-	@Column
-	private Set<Users> passengers = new HashSet<>();
 	
 	public long getId() {
 		return id;
