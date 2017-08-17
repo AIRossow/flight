@@ -1,10 +1,16 @@
 package com.cooksys.pojo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.cooksys.entity.Users;
 
 @Entity
 @Table(name = "Flights")
@@ -29,6 +35,17 @@ public class Flight {
 	//How many hours after the start of the day until the flight takes off
 	@Column
 	private long off;
+	
+	public Set<Users> getPassengers() {
+		return passengers;
+	}
+	public void setPassengers(Set<Users> passengers) {
+		this.passengers = passengers;
+	}
+
+	@ManyToMany(mappedBy = "bookedFlights")
+	@Column
+	private Set<Users> passengers = new HashSet<>();
 	
 	public long getId() {
 		return id;

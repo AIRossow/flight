@@ -1,8 +1,8 @@
 /* @ngInject */
 class bookService {
   constructor ($http, $map, $state) {
-	this.$map = $map
     this.$http = $http
+    this.$map = $map
     this.$state = $state
     this.username = ""
     this.password = ""
@@ -18,7 +18,7 @@ class bookService {
 		      params: { username: this.username, password: this.password, flightId: flight.id},
 		      url: 'http://localhost:8000/users/bookFlight'
 		    }).then(result =>{
-		       console.log(flight +" booked")
+		       console.log("Flight " + flight.id +" booked")
 		    })
   }
 }
